@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">🩺 MedStore</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Add Medicines</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="mobile-menu">☰</div>
+    </nav>
+
+    <h1 class="title">Available Medicines</h1>
+
+    <div class="container">
+        {% for medcine in med %}
+        <div class="card">
+            <img src="{{ medcine.image.url }}" alt="{{ medcine.name }}" class="card-img">
+            <h2>{{ medcine.name }}</h2>
+            <p class="price">Rs: {{ medcine.price }}</p>
+            <button class="btn">Buy Now</button>
+        </div>        
+        {% endfor %}
+    </div>
+
+</body>
+</html>
